@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "If you’ve ever wondered how Netflix recommends shows you actually want to watch, how Google Maps guesses traffic before you arrive, or how your email filters out spam, you’ve already experienced data science prediction in real life. These systems don’t “see the future.” Instead, they use patterns from the past to make an informed guess about what might happen next. The real power of prediction is not certainty—it’s reducing uncertainty enough to support better decisions.\n\n\nIn everyday language, prediction can sound like a confident statement: “This will happen.” In data science, prediction is usually more careful. A good predictive model often gives a probability or an estimate, not a guarantee. For example, a model might say “There is a 70% chance this user will return to the website,” or “This house price is likely around $820,000.” Those numbers come with error, and acknowledging that error is a key part of doing prediction responsibly.\nBefore any modeling happens, it helps to remember one basic idea: prediction is about patterns, not causes. If a model predicts that people who browse more listings are more likely to return to a real estate website, it does not automatically mean browsing causes returning. It simply means browsing behavior is informative for predicting future behavior.\n\n\n\nEvery good prediction project starts with a clear question. Vague questions like “Can we predict customer behavior?” are not specific enough to guide an analysis. A better version might be:\n\n“Will a user return to our website within the next 7 days?”\n“Will a student complete the course this term?”\n“Will a player’s injury risk increase in the next month?”\n\nA strong prediction question usually includes:\n\nWhat outcome you want to predict (return visit, completion, purchase, etc.)\nWho or what you are predicting for (a user, a house, a student, a game)\nWhen you want to predict it (next week, next month, next season)\n\nThis step matters because the question determines what data you need and how you evaluate success.\n\n\n\nOnce your question is clear, you need data that contains signals related to that outcome. In practice, this means historical examples where you know both the inputs and the outcome.\nFor example, to predict whether a website user will return, you might collect:\n\nnumber of pages viewed\ntime spent on the site\nclicks on certain features (search filters, open house info, price history)\nwhether the user saved listings\nwhether they visited on mobile or desktop\n\nThe key idea is that prediction learns from past labeled examples. If you don’t have a reliable “ground truth” outcome (e.g., whether the user returned), the model has nothing to learn.\nA common real-world issue is that data may be incomplete, messy, or collected for a different purpose. That doesn’t mean you can’t predict—it just means you need to be careful about what the data truly represents.\n\n\n\nReal data is rarely ready for modeling. It can have missing values, typos, inconsistent categories, duplicated records, and weird outliers. Cleaning can feel boring, but it often has the biggest impact on whether your prediction is trustworthy.\nExamples of typical cleaning steps:\n\nhandling missing values (drop, fill, or model them explicitly)\nconverting dates and times into usable formats\nfixing inconsistent categories (“Vancouver” vs “VANCOUVER”)\nremoving impossible values (negative time spent on site)\n\nOne especially important issue in prediction is data leakage. Leakage happens when your model accidentally uses information that wouldn’t be available at prediction time. For instance, if you predict “will the user return next week,” but you include a feature that was recorded after next week, your model will look amazing in evaluation—but fail in real use. Avoiding leakage is essential.\n\n\n\nFeatures are the model’s input variables—the pieces of information it uses to make predictions. Features can be simple (age, number of visits) or engineered (average time per session, trend in activity over time).\nGood features often come from asking: “What behavior would logically signal a higher chance of the outcome?”\nFor return-user prediction, you might build features like:\n\nsessions in the last 7 days\nnumber of saved listings\naverage minutes per session\npercent of sessions that included search filters\ndays since last visit\n\nFeature design is partly technical and partly creative. It’s like translating real behavior into numbers the model can learn from.\n\n\n\nNow you’re ready to train a model. A predictive model is a method that learns patterns from data to map features → outcome. Depending on the task, the model could be:\n\nlogistic regression (good baseline, interpretable)\ndecision trees or random forests (handle nonlinearity, easier to explain than deep nets)\ngradient boosting (often strong performance)\nneural networks (powerful, but can be harder to interpret and tune)\n\nAt a beginner level, it helps to remember: models are pattern-finders. They try to capture how combinations of features relate to the outcome based on historical examples.\nOne important concept is overfitting. A model can learn the training data too well, including noise, and then perform poorly on new data. This is why evaluation matters.\nAlso, in practice there is a tradeoff between accuracy and interpretability. Sometimes you want a model that is very accurate; other times you need a model that is explainable to stakeholders. Choosing the “best” model depends on the context and goals.\n\n\n\nA model is only useful if it works on new data—not just the data you trained it on. The standard approach is to split your data into:\n\ntraining set (fit the model)\ntest set (evaluate performance on unseen data)\n\nYou then choose metrics that match the problem:\n\nFor classification (return vs not return): accuracy, precision, recall, F1, ROC-AUC\nFor regression (predicting a number): MAE, RMSE, R²\n\nA good habit is to compare against a simple baseline. For example, if 80% of users never return, a model that always predicts “no return” would get 80% accuracy—without learning anything meaningful. Baselines help you judge whether your model is actually adding value.\nEvaluation also includes checking where the model fails. Does it perform worse for new users? Does it struggle when behavior patterns shift? These questions matter because real environments change.\n\n\n\nA prediction is not a promise. Communicating uncertainty is part of doing data science well. That might include:\n\nconfidence intervals (for numeric predictions)\nprobability outputs (instead of only yes/no)\nerror ranges or typical mistakes\nassumptions behind the data\n\nIt’s also important to discuss limitations like:\n\ndistribution shift: behavior can change over time (new website design, seasonality, economic changes)\nbias and fairness: models trained on historical data can reproduce historical inequalities\nfeedback loops: if you show recommendations, users may behave differently, changing the data you collect\n\nIn many real applications, the best approach is to treat a prediction model as a decision-support tool, not an automatic decision-maker. Humans still need to interpret results and think critically.\n\n\n\nData science prediction is a process of defining a clear question, collecting and cleaning historical data, designing meaningful features, training a model to learn patterns, and evaluating it honestly—while communicating uncertainty and limitations responsibly.\nWhen people say prediction is “magic,” what they’re really noticing is good pattern recognition at scale. Understanding the steps behind it helps you use predictive results more wisely, ask better questions, and communicate more clearly—even if you’re not writing the model code yourself."
+  },
+  {
+    "objectID": "posts/welcome/index.html#what-does-prediction-mean-in-data-science",
+    "href": "posts/welcome/index.html#what-does-prediction-mean-in-data-science",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "In everyday language, prediction can sound like a confident statement: “This will happen.” In data science, prediction is usually more careful. A good predictive model often gives a probability or an estimate, not a guarantee. For example, a model might say “There is a 70% chance this user will return to the website,” or “This house price is likely around $820,000.” Those numbers come with error, and acknowledging that error is a key part of doing prediction responsibly.\nBefore any modeling happens, it helps to remember one basic idea: prediction is about patterns, not causes. If a model predicts that people who browse more listings are more likely to return to a real estate website, it does not automatically mean browsing causes returning. It simply means browsing behavior is informative for predicting future behavior."
+  },
+  {
+    "objectID": "posts/welcome/index.html#step-1-define-the-prediction-question-clearly",
+    "href": "posts/welcome/index.html#step-1-define-the-prediction-question-clearly",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "Every good prediction project starts with a clear question. Vague questions like “Can we predict customer behavior?” are not specific enough to guide an analysis. A better version might be:\n\n“Will a user return to our website within the next 7 days?”\n“Will a student complete the course this term?”\n“Will a player’s injury risk increase in the next month?”\n\nA strong prediction question usually includes:\n\nWhat outcome you want to predict (return visit, completion, purchase, etc.)\nWho or what you are predicting for (a user, a house, a student, a game)\nWhen you want to predict it (next week, next month, next season)\n\nThis step matters because the question determines what data you need and how you evaluate success."
+  },
+  {
+    "objectID": "posts/welcome/index.html#step-2-collect-the-right-historical-data",
+    "href": "posts/welcome/index.html#step-2-collect-the-right-historical-data",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "Once your question is clear, you need data that contains signals related to that outcome. In practice, this means historical examples where you know both the inputs and the outcome.\nFor example, to predict whether a website user will return, you might collect:\n\nnumber of pages viewed\ntime spent on the site\nclicks on certain features (search filters, open house info, price history)\nwhether the user saved listings\nwhether they visited on mobile or desktop\n\nThe key idea is that prediction learns from past labeled examples. If you don’t have a reliable “ground truth” outcome (e.g., whether the user returned), the model has nothing to learn.\nA common real-world issue is that data may be incomplete, messy, or collected for a different purpose. That doesn’t mean you can’t predict—it just means you need to be careful about what the data truly represents."
+  },
+  {
+    "objectID": "posts/welcome/index.html#step-3-clean-and-prepare-the-data",
+    "href": "posts/welcome/index.html#step-3-clean-and-prepare-the-data",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "Real data is rarely ready for modeling. It can have missing values, typos, inconsistent categories, duplicated records, and weird outliers. Cleaning can feel boring, but it often has the biggest impact on whether your prediction is trustworthy.\nExamples of typical cleaning steps:\n\nhandling missing values (drop, fill, or model them explicitly)\nconverting dates and times into usable formats\nfixing inconsistent categories (“Vancouver” vs “VANCOUVER”)\nremoving impossible values (negative time spent on site)\n\nOne especially important issue in prediction is data leakage. Leakage happens when your model accidentally uses information that wouldn’t be available at prediction time. For instance, if you predict “will the user return next week,” but you include a feature that was recorded after next week, your model will look amazing in evaluation—but fail in real use. Avoiding leakage is essential."
+  },
+  {
+    "objectID": "posts/welcome/index.html#step-4-create-features-that-represent-useful-signals",
+    "href": "posts/welcome/index.html#step-4-create-features-that-represent-useful-signals",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "Features are the model’s input variables—the pieces of information it uses to make predictions. Features can be simple (age, number of visits) or engineered (average time per session, trend in activity over time).\nGood features often come from asking: “What behavior would logically signal a higher chance of the outcome?”\nFor return-user prediction, you might build features like:\n\nsessions in the last 7 days\nnumber of saved listings\naverage minutes per session\npercent of sessions that included search filters\ndays since last visit\n\nFeature design is partly technical and partly creative. It’s like translating real behavior into numbers the model can learn from."
+  },
+  {
+    "objectID": "posts/welcome/index.html#step-5-train-a-predictive-model",
+    "href": "posts/welcome/index.html#step-5-train-a-predictive-model",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "Now you’re ready to train a model. A predictive model is a method that learns patterns from data to map features → outcome. Depending on the task, the model could be:\n\nlogistic regression (good baseline, interpretable)\ndecision trees or random forests (handle nonlinearity, easier to explain than deep nets)\ngradient boosting (often strong performance)\nneural networks (powerful, but can be harder to interpret and tune)\n\nAt a beginner level, it helps to remember: models are pattern-finders. They try to capture how combinations of features relate to the outcome based on historical examples.\nOne important concept is overfitting. A model can learn the training data too well, including noise, and then perform poorly on new data. This is why evaluation matters.\nAlso, in practice there is a tradeoff between accuracy and interpretability. Sometimes you want a model that is very accurate; other times you need a model that is explainable to stakeholders. Choosing the “best” model depends on the context and goals."
+  },
+  {
+    "objectID": "posts/welcome/index.html#step-6-evaluate-the-model-the-right-way",
+    "href": "posts/welcome/index.html#step-6-evaluate-the-model-the-right-way",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "A model is only useful if it works on new data—not just the data you trained it on. The standard approach is to split your data into:\n\ntraining set (fit the model)\ntest set (evaluate performance on unseen data)\n\nYou then choose metrics that match the problem:\n\nFor classification (return vs not return): accuracy, precision, recall, F1, ROC-AUC\nFor regression (predicting a number): MAE, RMSE, R²\n\nA good habit is to compare against a simple baseline. For example, if 80% of users never return, a model that always predicts “no return” would get 80% accuracy—without learning anything meaningful. Baselines help you judge whether your model is actually adding value.\nEvaluation also includes checking where the model fails. Does it perform worse for new users? Does it struggle when behavior patterns shift? These questions matter because real environments change."
+  },
+  {
+    "objectID": "posts/welcome/index.html#step-7-communicate-uncertainty-limitations-and-responsible-use",
+    "href": "posts/welcome/index.html#step-7-communicate-uncertainty-limitations-and-responsible-use",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "A prediction is not a promise. Communicating uncertainty is part of doing data science well. That might include:\n\nconfidence intervals (for numeric predictions)\nprobability outputs (instead of only yes/no)\nerror ranges or typical mistakes\nassumptions behind the data\n\nIt’s also important to discuss limitations like:\n\ndistribution shift: behavior can change over time (new website design, seasonality, economic changes)\nbias and fairness: models trained on historical data can reproduce historical inequalities\nfeedback loops: if you show recommendations, users may behave differently, changing the data you collect\n\nIn many real applications, the best approach is to treat a prediction model as a decision-support tool, not an automatic decision-maker. Humans still need to interpret results and think critically."
+  },
+  {
+    "objectID": "posts/welcome/index.html#conclusion-the-prediction-workflow-in-one-sentence",
+    "href": "posts/welcome/index.html#conclusion-the-prediction-workflow-in-one-sentence",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "Data science prediction is a process of defining a clear question, collecting and cleaning historical data, designing meaningful features, training a model to learn patterns, and evaluating it honestly—while communicating uncertainty and limitations responsibly.\nWhen people say prediction is “magic,” what they’re really noticing is good pattern recognition at scale. Understanding the steps behind it helps you use predictive results more wisely, ask better questions, and communicate more clearly—even if you’re not writing the model code yourself."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DSCI 542 Blog",
+    "section": "",
+    "text": "Post With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 17, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 17, 2026\n\n\nAitong Wu\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  }
+]
