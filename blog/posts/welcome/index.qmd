@@ -1,0 +1,156 @@
+---
+title: "Welcome To My Blog"
+author: "Aitong Wu"
+date: "2026-01-17"
+categories: [news]
+---
+
+# From Past to Future: How Data Science Makes Predictions
+
+If you’ve ever wondered how Netflix recommends shows you actually want to watch, how Google Maps guesses traffic before you arrive, or how your email filters out spam, you’ve already experienced data science prediction in real life. These systems don’t “see the future.” Instead, they use patterns from the past to make an informed guess about what might happen next. The real power of prediction is not certainty—it’s reducing uncertainty enough to support better decisions.
+
+## What does “prediction” mean in data science?
+
+In everyday language, prediction can sound like a confident statement: “This will happen.” In data science, prediction is usually more careful. A good predictive model often gives a **probability** or an **estimate**, not a guarantee. For example, a model might say “There is a 70% chance this user will return to the website,” or “This house price is likely around \$820,000.” Those numbers come with error, and acknowledging that error is a key part of doing prediction responsibly.
+
+Before any modeling happens, it helps to remember one basic idea: **prediction is about patterns**, not causes. If a model predicts that people who browse more listings are more likely to return to a real estate website, it does not automatically mean browsing causes returning. It simply means browsing behavior is informative for predicting future behavior.
+
+## Step 1: Define the prediction question clearly
+
+Every good prediction project starts with a clear question. Vague questions like “Can we predict customer behavior?” are not specific enough to guide an analysis. A better version might be:
+
+-    “Will a user return to our website within the next 7 days?”
+
+-    “Will a student complete the course this term?”
+
+-   “Will a player’s injury risk increase in the next month?”
+
+A strong prediction question usually includes:
+
+-   **What outcome** you want to predict (return visit, completion, purchase, etc.)
+
+-   **Who or what** you are predicting for (a user, a house, a student, a game)
+
+-   **When** you want to predict it (next week, next month, next season)
+
+This step matters because the question determines what data you need and how you evaluate success.
+
+## Step 2: Collect the right historical data
+
+Once your question is clear, you need data that contains signals related to that outcome. In practice, this means **historical examples** where you know both the inputs and the outcome.
+
+For example, to predict whether a website user will return, you might collect:
+
+-   number of pages viewed
+
+-   time spent on the site
+
+-   clicks on certain features (search filters, open house info, price history)
+
+-   whether the user saved listings
+
+-   whether they visited on mobile or desktop
+
+The key idea is that prediction learns from past labeled examples. If you don’t have a reliable “ground truth” outcome (e.g., whether the user returned), the model has nothing to learn.
+
+A common real-world issue is that data may be incomplete, messy, or collected for a different purpose. That doesn’t mean you can’t predict—it just means you need to be careful about what the data truly represents.
+
+## Step 3: Clean and prepare the data 
+
+Real data is rarely ready for modeling. It can have missing values, typos, inconsistent categories, duplicated records, and weird outliers. Cleaning can feel boring, but it often has the biggest impact on whether your prediction is trustworthy.
+
+Examples of typical cleaning steps:
+
+-   handling missing values (drop, fill, or model them explicitly)
+
+-   converting dates and times into usable formats
+
+-   fixing inconsistent categories (“Vancouver” vs “VANCOUVER”)
+
+-   removing impossible values (negative time spent on site)
+
+One especially important issue in prediction is **data leakage**. Leakage happens when your model accidentally uses information that wouldn’t be available at prediction time. For instance, if you predict “will the user return next week,” but you include a feature that was recorded after next week, your model will look amazing in evaluation—but fail in real use. Avoiding leakage is essential.
+
+## Step 4: Create features that represent useful signals
+
+Features are the model’s input variables—the pieces of information it uses to make predictions. Features can be simple (age, number of visits) or engineered (average time per session, trend in activity over time).
+
+Good features often come from asking: “What behavior would logically signal a higher chance of the outcome?”
+
+For return-user prediction, you might build features like:
+
+-   sessions in the last 7 days
+
+-   number of saved listings
+
+-   average minutes per session
+
+-   percent of sessions that included search filters
+
+-   days since last visit
+
+Feature design is partly technical and partly creative. It’s like translating real behavior into numbers the model can learn from.
+
+## Step 5: Train a predictive model
+
+Now you’re ready to train a model. A predictive model is a method that learns patterns from data to map features → outcome. Depending on the task, the model could be:
+
+-   logistic regression (good baseline, interpretable)
+
+-   decision trees or random forests (handle nonlinearity, easier to explain than deep nets)
+
+-   gradient boosting (often strong performance)
+
+-   neural networks (powerful, but can be harder to interpret and tune)
+
+At a beginner level, it helps to remember: models are **pattern-finders**. They try to capture how combinations of features relate to the outcome based on historical examples.
+
+One important concept is **overfitting**. A model can learn the training data too well, including noise, and then perform poorly on new data. This is why evaluation matters.
+
+Also, in practice there is a tradeoff between **accuracy** and **interpretability**. Sometimes you want a model that is very accurate; other times you need a model that is explainable to stakeholders. Choosing the “best” model depends on the context and goals.
+
+## Step 6: Evaluate the model the right way
+
+A model is only useful if it works on new data—not just the data you trained it on. The standard approach is to split your data into:
+
+-   **training set** (fit the model)
+
+-   **test set** (evaluate performance on unseen data)
+
+You then choose metrics that match the problem:
+
+-   For classification (return vs not return): accuracy, precision, recall, F1, ROC-AUC
+
+-   For regression (predicting a number): MAE, RMSE, R²
+
+A good habit is to compare against a simple **baseline**. For example, if 80% of users never return, a model that always predicts “no return” would get 80% accuracy—without learning anything meaningful. Baselines help you judge whether your model is actually adding value.
+
+Evaluation also includes checking *where* the model fails. Does it perform worse for new users? Does it struggle when behavior patterns shift? These questions matter because real environments change.
+
+## Step 7: Communicate uncertainty, limitations, and responsible use
+
+A prediction is not a promise. Communicating uncertainty is part of doing data science well. That might include:
+
+-   confidence intervals (for numeric predictions)
+
+-   probability outputs (instead of only yes/no)
+
+-   error ranges or typical mistakes
+
+-   assumptions behind the data
+
+It’s also important to discuss limitations like:
+
+-   **distribution shift**: behavior can change over time (new website design, seasonality, economic changes)
+
+-   **bias and fairness**: models trained on historical data can reproduce historical inequalities
+
+-   **feedback loops**: if you show recommendations, users may behave differently, changing the data you collect
+
+In many real applications, the best approach is to treat a prediction model as a decision-support tool, not an automatic decision-maker. Humans still need to interpret results and think critically.
+
+## Conclusion: The prediction workflow in one sentence
+
+Data science prediction is a process of defining a clear question, collecting and cleaning historical data, designing meaningful features, training a model to learn patterns, and evaluating it honestly—while communicating uncertainty and limitations responsibly.
+
+When people say prediction is “magic,” what they’re really noticing is good pattern recognition at scale. Understanding the steps behind it helps you use predictive results more wisely, ask better questions, and communicate more clearly—even if you’re not writing the model code yourself.
